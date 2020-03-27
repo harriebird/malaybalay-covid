@@ -1,0 +1,48 @@
+html, body, #map {
+    height: 100%;
+}
+
+#map {
+    min-height: 400px;
+}
+
+#graph {
+    min-height: 400px;
+}
+
+#chart-area {
+    height: 25%;
+}
+
+#map-area {
+    height: 75%;
+}
+
+#barangay-list, #overall-stats {
+    padding: 4px;
+}
+
+#overall-stats-carousel h5 {
+    margin: 0px;
+}
+
+#barangay-list ul, #overall-stats-carousel {
+    overflow-y: auto;
+    max-height: 450px;
+}
+
+.barangay-pin p {
+    margin: 0px;
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+    #map {
+        height: 75%;
+    }
+}
+
+@media (min-width: 1400px) {
+    #barangay-list ul, #overall-stats-carousel {
+        max-height: 800px;
+    }
+}

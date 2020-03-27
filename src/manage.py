@@ -5,7 +5,10 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mccovid.settings')
+    if os.path.exists('local_settings.py'):
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'local_settings')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mccovid.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

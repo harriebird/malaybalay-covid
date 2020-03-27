@@ -1,0 +1,15 @@
+from mccovid.settings import *
+
+DEBUG = False
+ALLOWED_HOSTS = ['HOST_HERE']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASS',
+        'HOST': 'DB_HOST',
+        'PORT': 3306,
+    }
+}

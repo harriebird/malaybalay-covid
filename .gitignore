@@ -256,3 +256,6 @@ modules.xml
 
 # Custom Ignores
 staticfiles/
+mccovid.sock
+venv/
+.env

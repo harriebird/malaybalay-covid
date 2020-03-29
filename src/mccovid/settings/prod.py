@@ -12,7 +12,7 @@ DEBUG = False
 SECRET_KEY = env('SECRET_KEY')
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['lodi.com', 'lodi.com.ph']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Production Logging - Sent all errors to sentry
 # ------------------------------------------------------------------------------

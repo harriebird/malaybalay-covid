@@ -8,6 +8,11 @@ def index(request):
     return render(request, 'webapp/index.html')
 
 
+def charts(request):
+    return render(request, 'webapp/charts.html')
+
+
+# API Views
 class BarangayAPIView(generics.ListAPIView):
     queryset = Barangay.objects.all()
     serializer_class = BarangaySerializer
@@ -34,5 +39,5 @@ class CaseAPIView(generics.ListAPIView):
 
 
 class DailyCaseBulletinAPIView(generics.ListAPIView):
-    queryset = CaseBulletin.objects.all()
+    queryset = CaseBulletin.objects.all().order_by('log_time')
     serializer_class = DailyCaseBulletinSerializer

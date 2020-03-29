@@ -2,6 +2,11 @@ html, body, #map {
     height: 100%;
 }
 
+#loading-spinner {
+    width: 7rem;
+    height: 7rem;
+}
+
 #map {
     min-height: 400px;
 }
@@ -22,22 +27,31 @@ html, body, #map {
     padding: 4px;
 }
 
-#overall-stats-carousel h5 {
-    margin: 0px;
-}
-
 #barangay-list ul, #overall-stats-carousel {
     overflow-y: auto;
     max-height: 450px;
 }
 
-.barangay-pin p {
+.barangay-pin p, #overall-stats-carousel h5 {
     margin: 0px;
+}
+
+#top-10-pum li, #top-10-pui li {
+    padding: .5rem 1.25rem;
+}
+
+#top-10-pum li span, #top-10-pui li span {
+    font-size: 100%;
 }
 
 @media (min-width: 300px) and (max-width: 768px) {
     #map {
         height: 75%;
+    }
+
+    #barangay-list ul, #overall-stats-carousel {
+        overflow-y: auto;
+        max-height: none;
     }
 }
 

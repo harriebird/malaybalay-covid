@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
 
 
-    let focusToBarangay = function(lat, long) {
+    focusToBarangay = function(lat, long) {
         map.flyTo([lat, long], 16);
     }
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
             data: []
         };
 
-        data.cases.forEach((barCase, i) => {
+        data.cases.forEach((barCase) => {
             L.marker([barCase.barangay.latitude, barCase.barangay.longitude]).addTo(barangaysLayer)
                 .bindPopup(`<div class="barangay-pin">
                             <p class="font-weight-bold">${barCase.barangay.name}</p>

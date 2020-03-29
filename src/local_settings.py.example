@@ -1,7 +1,9 @@
-from mccovid.settings import *
+from mccovid.settings.dev import *
 
 DEBUG = False
 ALLOWED_HOSTS = ['HOST_HERE']
+
+SECRET_KEY = 'SECRET_KEY_HERE'
 
 DATABASES = {
     'default': {

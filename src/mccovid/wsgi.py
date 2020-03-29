@@ -1,16 +1,8 @@
-"""
-WSGI config for mccovid project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
-"""
-
 import os
 
 from django.core.wsgi import get_wsgi_application
+from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'local_settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mccovid.settings.prod")
 
-application = get_wsgi_application()
+application = Sentry(get_wsgi_application())

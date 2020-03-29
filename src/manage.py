@@ -3,6 +3,7 @@
 import os
 import sys
 
+
 def local_config_exists():
     for p in sys.path:
         local_config = os.path.join(p, "local_settings.py")
@@ -11,8 +12,9 @@ def local_config_exists():
             return True
     return False
 
+
 def main():
-    if os.path.exists('local_settings.py'):
+    if local_config_exists():
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'local_settings')
     else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mccovid.settings.prod')

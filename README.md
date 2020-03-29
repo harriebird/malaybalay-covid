@@ -5,10 +5,12 @@ Simple Dashboard displaying data about COVID-19 in the City of Malaybalay.
 ## Setup
 1. Clone this repository
 2. Install the required packages
-3. Run the Django web application
+3. Create a copy of `local_settings.py.example` and name it `local_settings.py`. Modify it according to you own preference.
+4. Run database migration.
+5. Run the Django web application
 
 ## Requirements
-* Database (This was developed using MariaDB)
+* Database supported by Django (This was developed using MariaDB)
 * Python packages specified on the `requirements.txt`
 
 ## License

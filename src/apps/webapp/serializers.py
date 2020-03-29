@@ -28,4 +28,5 @@ class CaseBulletinSerializer(serializers.ModelSerializer):
 class DailyCaseBulletinSerializer(serializers.ModelSerializer):
     class Meta:
         model = CaseBulletin
-        fields = ['id', 'log_time', 'pum_total', 'pui_total']
+        fields = ['id', 'log_time', 'pum_total', 'pum_completed', 'pum_cleared', 'pum_ongoing', 'pui_total',
+                  'pui_admitted', 'pui_completed', 'pui_home', 'pui_cleared']

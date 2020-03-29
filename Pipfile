@@ -1,0 +1,24 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+django-debug-toolbar = "*"
+jupyter = "*"
+jupyterlab = "*"
+django-extensions = "*"
+v = {editable = true,version = "*"}
+
+[packages]
+asgiref = "*"
+djangorestframework = "*"
+mysqlclient = "*"
+pytz = "*"
+sqlparse = "*"
+Django = "*"
+django-environ = "*"
+raven = "*"
+
+[requires]
+python_version = "3.8"

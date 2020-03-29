@@ -13,3 +13,7 @@ Simple Dashboard displaying data about COVID-19 in the City of Malaybalay.
 
 ## License
 Code released under the [MIT License](https://gitlab.com/harriebird/malaybalay-covid/-/blob/master/LICENSE)
+
+## Change list
+* pipenv support (28/03/2020)
+* production ready configs (28/03/2020)

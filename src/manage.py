@@ -3,12 +3,19 @@
 import os
 import sys
 
+def local_config_exists():
+    for p in sys.path:
+        local_config = os.path.join(p, "local_settings.py")
+        if os.path.exists(local_config):
+            print("Found local_settings.py at {}".format(local_config))
+            return True
+    return False
 
 def main():
     if os.path.exists('local_settings.py'):
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'local_settings')
     else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mccovid.settings')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mccovid.settings.prod')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

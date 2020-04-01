@@ -1,0 +1,20 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block addstyles %}
+    <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="page-header" class="d-flex justify-content-center container-fluid mt-5 bg-info text-light">
+        <div class="align-self-center">
+            <h1 class="display-4 font-weight-bold">Malaybalay City COVID-19 Timeline</h1>
+            <h4 class="font-weight-light"><i class="fa fa-angle-down"></i> Start scrolling to view the Timeline</h4>
+        </div>
+    </div>
+    <div id="covid-timeline" class="covid-container"></div>
+{% endblock %}
+
+{% block addscripts %}
+    <script src="{% static 'js/timeline.js' %}"></script>
+{% endblock %}

@@ -4,11 +4,19 @@ from django.utils import timezone
 
 class Barangay(models.Model):
     name = models.CharField(max_length=80)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
 
     def __str__(self):
         return self.name
+
+
+class BarangayHotline(models.Model):
+    barangay = models.ForeignKey(Barangay, related_name='barangay_hotline', on_delete=models.CASCADE)
+    contact_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.contact_number
 
 
 class CaseBulletin(models.Model):
@@ -30,8 +38,21 @@ class CaseBulletin(models.Model):
 class Case(models.Model):
     case_bulletin = models.ForeignKey(CaseBulletin, related_name='cases',  on_delete=models.CASCADE)
     barangay = models.ForeignKey(Barangay, related_name='cases', on_delete=models.CASCADE)
-    pui = models.IntegerField()
-    pum = models.IntegerField()
+    pui = models.IntegerField(default=0)
+    pum = models.IntegerField(default=0)
 
     def __str__(self):
         return '{} @ Barangay {}'.format(self.case_bulletin.log_time, self.barangay.name)
+
+
+class TimeLineEntry(models.Model):
+    entry_timestamp = models.DateTimeField(default=timezone.now)
+    title = models.CharField(max_length=300, default='')
+    text = models.TextField(default='')
+    details_link = models.URLField(max_length=300, default='')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Timeline Entries'

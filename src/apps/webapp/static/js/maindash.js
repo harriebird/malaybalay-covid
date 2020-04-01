@@ -18,7 +18,7 @@ $(document).ready(function () {
     let barangaysLayer = L.layerGroup();
     let pumHeatmapLayer = new HeatmapOverlay(cfg);
     let map = new L.Map('map', {
-        center: new L.LatLng(8.1724, 125.1559),
+        center: new L.LatLng(8.1400, 125.1600),
         zoom: 11,
         layers: [baseLayer, barangaysLayer, pumHeatmapLayer]
     });
@@ -61,11 +61,21 @@ $(document).ready(function () {
         };
 
         data.cases.forEach((barCase) => {
+
+            let hotlineCode = ''
+            if(barCase.barangay.barangay_hotline.length > 0) {
+                hotlineCode = hotlineCode.concat('<p class="text-info font-weight-bold mt-1">BHERT Hotline:</p>');
+                barCase.barangay.barangay_hotline.forEach((hotline) => {
+                    hotlineCode = hotlineCode.concat(`<p class="text-body font-weight-bold">${hotline.contact_number}</p>`);
+                });
+            }
+
             L.marker([barCase.barangay.latitude, barCase.barangay.longitude]).addTo(barangaysLayer)
                 .bindPopup(`<div class="barangay-pin">
                             <p class="font-weight-bold">${barCase.barangay.name}</p>
                             <p class="text-warning font-weight-bold">PUM: ${barCase.pum}</p>
-                            <p class="text-danger font-weight-bold">PUI: ${barCase.pui}</p></div>`);
+                            <p class="text-danger font-weight-bold">PUI: ${barCase.pui}</p>
+                            ${hotlineCode}</div>`);
 
             $('#barangay-list > ul:last-child')
                 .append(`<li onclick="focusToBarangay(${barCase.barangay.latitude}, ${barCase.barangay.longitude})" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">

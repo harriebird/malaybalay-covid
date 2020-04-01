@@ -50,21 +50,14 @@ $(document).ready(function () {
         topPuis = topPuis.slice(0, 10);
 
         topPums.forEach((topPum, i) => {
-            $('#top-10-pum > ul:last-child')
-                .append(`<li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
-                    ${i+1}. ${topPum.barangay.name}
-                    <span class="badge badge-warning">${topPum.pum} PUM${topPum.pum > 1 ? 's' : ''}</span>`);
+            $(`#pum-top-${i + 1}`).text(`${i+1}. ${topPum.barangay.name}`)
+                .append(`<span class="badge badge-warning">${topPum.pum} PUM${topPum.pum > 1 ? 's' : ''}</span>`);
         });
 
         topPuis.forEach((topPui, i) => {
-            $('#top-10-pui > ul:last-child')
-                .append(`<li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
-                    ${i+1}. ${topPui.barangay.name}
-                    <span class="badge badge-danger">${topPui.pui} PUI${topPui.pui > 1 ? 's' : ''}</span>`);
+            $(`#pui-top-${i + 1}`).text(`${i+1}. ${topPui.barangay.name}`)
+                .append(`<span class="badge badge-danger">${topPui.pui} PUI${topPui.pui > 1 ? 's' : ''}</span>`);
         });
-
-        $('#top-10-pum  h3').text('TOP 10 PUM BARANGAYS');
-        $('#top-10-pui  h3').text('TOP 10 PUI BARANGAYS');
 
         $('.count').each(function () {
             $(this).prop('Counter', 0).animate({

@@ -167,9 +167,14 @@ RAVEN_CONFIG = {
     'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
 }
 
-# REST Framework Docs
+# REST Framework and Docs
 # ------------------------------------------------------------------------------
 # See: http://drfdocs.com/settings/
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
 REST_FRAMEWORK_DOCS = {
     'HIDE_DOCS': env.bool('HIDE_DRFDOCS', False)
 }

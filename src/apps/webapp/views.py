@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, filters
-from .serializers import BarangaySerializer, CaseBulletinSerializer, CaseSerializer, DailyCaseBulletinSerializer
-from .models import Barangay, CaseBulletin, Case
+from .serializers import BarangaySerializer, CaseBulletinSerializer, CaseSerializer, DailyCaseBulletinSerializer, TimeLineEntrySerializer
+from .models import Barangay, CaseBulletin, Case, TimeLineEntry
 
 
 def index(request):
@@ -10,6 +10,10 @@ def index(request):
 
 def charts(request):
     return render(request, 'webapp/charts.html')
+
+
+def timeline(request):
+    return render(request, 'webapp/timeline.html')
 
 
 # API Views
@@ -41,3 +45,10 @@ class CaseAPIView(generics.ListAPIView):
 class DailyCaseBulletinAPIView(generics.ListAPIView):
     queryset = CaseBulletin.objects.all().order_by('log_time')
     serializer_class = DailyCaseBulletinSerializer
+    pagination_class = None
+
+
+class TimeLineEntryAPIView(generics.ListAPIView):
+    queryset = TimeLineEntry.objects.all().order_by('entry_timestamp')
+    serializer_class = TimeLineEntrySerializer
+

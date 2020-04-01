@@ -2,12 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <div id="charts" class="container-fluid py-5">
+    <div id="page-header" class="d-flex justify-content-center container-fluid mt-5 bg-info text-light">
+        <div class="align-self-center">
+            <h1 class="display-4 font-weight-bold">Malaybalay City COVID-19 Charts</h1>
+            <h4 class="font-weight-light">as of <span id="log-time">------------------</span></h4>
+        </div>
+    </div>
+    <div id="charts" class="container-fluid pb-5">
         <div class="row">
-            <div class="col-md-12 text-center mt-4">
-                <h1 class="display-5">Malaybalay City COVID-19 Charts</h1>
-                <h4>as of <span id="log-time">------------------</span></h4>
-            </div>
             <div class="col-md-3 mt-5">
                 <div class="list-group">
                     <div class="list-group-item list-group-item-action">
@@ -50,16 +52,10 @@
                 </div>
             </div>
             <div class="col-md-3 mt-5">
-                <div id="top-10-pum">
-                    <h3 class="text-center"></h3>
-                    <ul class="list-group mt-2"></ul>
-                </div>
+                {% include 'webapp/components/top10pum.html' %}
             </div>
             <div class="col-md-3 mt-5">
-                <div id="top-10-pui">
-                    <h3 class="text-center"></h3>
-                    <ul class="list-group mt-2"></ul>
-                </div>
+                {% include 'webapp/components/top10pui.html' %}
             </div>
             <div class="col-md-6 mt-4">
                 <div id="overall-pum-chart"></div>

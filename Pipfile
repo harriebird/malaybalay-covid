@@ -19,6 +19,7 @@ sqlparse = "*"
 Django = "*"
 django-environ = "*"
 raven = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

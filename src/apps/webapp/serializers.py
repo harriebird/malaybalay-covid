@@ -1,11 +1,19 @@
 from rest_framework import serializers
-from .models import Barangay, CaseBulletin, Case
+from .models import Barangay, CaseBulletin, Case, BarangayHotline, TimeLineEntry
+
+
+class BarangayHotlineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BarangayHotline
+        fields = ['id', 'contact_number']
 
 
 class BarangaySerializer(serializers.ModelSerializer):
+    barangay_hotline = BarangayHotlineSerializer(many=True, read_only=True)
+
     class Meta:
         model = Barangay
-        fields = ['id', 'name', 'latitude', 'longitude']
+        fields = ['id', 'name', 'latitude', 'longitude', 'barangay_hotline']
 
 
 class CaseSerializer(serializers.ModelSerializer):
@@ -30,3 +38,10 @@ class DailyCaseBulletinSerializer(serializers.ModelSerializer):
         model = CaseBulletin
         fields = ['id', 'log_time', 'pum_total', 'pum_completed', 'pum_cleared', 'pum_ongoing', 'pui_total',
                   'pui_admitted', 'pui_completed', 'pui_home', 'pui_cleared']
+
+
+class TimeLineEntrySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = TimeLineEntry
+        fields = ['id', 'title', 'entry_timestamp', 'text', 'details_link']
